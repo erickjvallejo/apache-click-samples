@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<click-app>
+    <pages-package>com.sample.pages</pages-package>
+    <pages>
+        <page path="pages/HelloWorldPage.htm" classname="com.sample.pages.HelloWorldPage"/>
+        <page path="pages/SelectPage.htm" classname="com.sample.pages.SelectPage"/>
+        <page path="click/not-found.htm" classname="org.apache.click.Page"/>
+        <page path="click/error.htm" classname="org.apache.click.util.ErrorPage"/>
+    </pages>
+    <error-page code="404" path="click/not-found.htm"/>
+</click-app>
