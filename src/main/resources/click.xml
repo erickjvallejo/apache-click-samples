@@ -1,11 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<click-app>
-    <pages-package>com.sample.pages</pages-package>
-    <pages>
-        <page path="pages/HelloWorldPage.htm" classname="com.sample.pages.HelloWorldPage"/>
+<click-app charset="UTF-8" locale="en">>
+
+    <pages package="com.sample.pages">
+        <excludes pattern="js/jquery/tiny_mce/*"/>
+        <page path="pages/HomePage.htm" classname="com.sample.pages.HomePage"/>
         <page path="pages/SelectPage.htm" classname="com.sample.pages.SelectPage"/>
         <page path="click/not-found.htm" classname="org.apache.click.Page"/>
         <page path="click/error.htm" classname="org.apache.click.util.ErrorPage"/>
     </pages>
+
+    <pages package="com.sample"/>
+
     <error-page code="404" path="click/not-found.htm"/>
+
+    <headers>
+        <header name="Content-Type" value="text/html;charset=UTF-8"/>
+        <header name="Pragma" value="no-cache"/>
+        <header name="Cache-Control" value="no-store, no-cache, must-revalidate, post-check=0, pre-check=0"/>
+        <header name="Expires" value="1" type="Date"/>
+    </headers>
+
+    <!-- Set Click internal Logger to Log4J instead of the default ConsoleLogService -->
+    <!--<log-service classname="net.sf.click.extras.service.Log4JLogService"/>-->
+
+    <!-- Set the net.sf.click.service.CommonsFileUploadService properties: sizeMax and fileSizeMax. -->
+    <file-upload-service>
+        <!-- Set the total request maximum size to 10mb (10 x 1024 x 1024 = 10485760). The default request upload size is unlimited. -->
+        <!--<property name="sizeMax" value="10485760"/>-->
+        <property name="sizeMax" value="83886080"/>
+
+        <!-- Set the maximum individual file size to 4mb (4 x 1024 x 1024 = 4194304). The default file upload size is unlimited. -->
+        <!-- Payroll mapping upload/download file sizes count potentially be very big - use the default of no size limit -->
+        <!--<property name="fileSizeMax" value="4194304"/>-->
+    </file-upload-service>
+    <!-- The commented section below shows how to use the classname attribute to specify -->
+    <!-- a custom net.sf.click.service.FileUploadService implementation. -->
+    <!--
+     <file-upload-service classname="com.mycorp.util.CustomFileUploadService">
+       <property name="sizeMax" value="10485760"/>
+       <property name="fileSizeMax" value="2097152"/>
+     </file-upload-service>
+     -->
+    <!--    <log-service classname="org.apache.click.extras.service.Log4JLogService"/>-->
+    <mode value="trace"/>
+
+<!--    production
+    profile
+    development
+    debug
+    trace-->
+
 </click-app>

@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Mi Página con Select</title>
-</head>
-<body>
-${miSelect}
-</body>
+    <head>
+        $headElements
+    </head>
+    <body>
+        Hello world from Click at $time
+        <br>
+        $form
+        <br>
+        #if ($msg)
+            <div id="msgDiv"> $msg</div>
+        #end
+        $jsElements
+    </body>
 </html>

@@ -106,3 +106,5 @@ fabric.properties
 /.project
 /.classpath
 /apache-click-samples.iml
+.idea/
+target

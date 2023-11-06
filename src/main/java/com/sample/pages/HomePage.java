@@ -2,15 +2,14 @@ package com.sample.pages;
 
 import org.apache.click.Page;
 
-public class HelloWorldPage extends Page {
+public class HomePage extends Page {
     @Override
     public boolean onSecurityCheck() {
-        // Perform security checks if needed, return true to continue processing.
         return true;
     }
 
     public void onInit() {
-        addModel("mensaje", "Este es un mensaje personalizado.");
+        addModel("message", "Custom Message on Home Page");
     }
 
     @Override
